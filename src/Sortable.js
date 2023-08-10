@@ -752,12 +752,6 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
 			let target = document.elementFromPoint(touchEvt.clientX, touchEvt.clientY);
 			let parent = target;
 
-			while (target && target.shadowRoot) {
-				target = target.shadowRoot.elementFromPoint(touchEvt.clientX, touchEvt.clientY);
-				if (target === parent) break;
-				parent = target;
-			}
-
 			dragEl.parentNode[expando]._isOutsideThisEl(target);
 
 			if (parent) {
